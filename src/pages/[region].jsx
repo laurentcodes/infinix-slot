@@ -142,7 +142,10 @@ export default function Spin() {
 					size='lg'
 					popup
 					position='center'
-					onClose={() => setOpenModal(false)}
+					onClose={() => {
+						setOpenModal(false);
+						setIsExploding(false);
+					}}
 				>
 					<Modal.Header className='bg-black rounded-t-lg' />
 					<Modal.Body className='bg-black rounded-b-lg'>
