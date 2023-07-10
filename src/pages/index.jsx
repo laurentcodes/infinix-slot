@@ -1,76 +1,9 @@
-import { useState } from 'react';
 import { useRouter } from 'next/router';
+
+import { regions, lagRegions } from '../../data/regions';
 
 const Home = () => {
 	const router = useRouter();
-
-	// const [regions, setRegions] = useState([]);
-
-	const regions = [
-		{
-			name: 'Lagos',
-			initial: 'La',
-		},
-		{
-			name: 'Port Harcourt',
-			initial: 'Ph',
-		},
-		{
-			name: 'Ibadan',
-			initial: 'Ib',
-		},
-		{
-			name: 'Kaduna',
-			initial: 'Kd',
-		},
-		{
-			name: 'Kano',
-			initial: 'Kn',
-		},
-		{
-			name: 'Onitsha',
-			initial: 'On',
-		},
-		{
-			name: 'Abuja',
-			initial: 'Ab',
-		},
-	];
-
-	const lagRegions = [
-		{
-			name: 'Royaling',
-			initial: 'Ro',
-		},
-		{
-			name: 'Mchris',
-			initial: 'Mc',
-		},
-		{
-			name: 'Ponitek',
-			initial: 'Po',
-		},
-		{
-			name: 'Top Success',
-			initial: 'Ts',
-		},
-		{
-			name: 'Finet',
-			initial: 'Fi',
-		},
-		{
-			name: '3CHub',
-			initial: '3c',
-		},
-		{
-			name: 'Fine Brothers',
-			initial: 'Fb',
-		},
-		{
-			name: 'Slot',
-			initial: 'Sl',
-		},
-	];
 
 	return (
 		<div className='h-full md:h-screen w-screen bg-green-700 p-6'>
@@ -83,7 +16,9 @@ const Home = () => {
 							<div
 								key={region.initial}
 								className='bg-green-300 p-3 basis-1/2 md:basis-1/4 flex flex-col gap-3 justify-center items-center rounded-md cursor-pointer'
-								onClick={() => router.push(`/${region.name.toLowerCase()}`)}
+								onClick={() =>
+									router.push(`/region/${region.name.toLowerCase()}`)
+								}
 							>
 								<p className='p-3 bg-black text-white rounded uppercase w-[65%] md:w-[50%] text-center'>
 									{region.initial}
@@ -104,7 +39,9 @@ const Home = () => {
 							<div
 								key={region.initial}
 								className='bg-green-300 p-3 basis-1/2 md:basis-1/4 flex flex-col gap-3 justify-center items-center rounded-md cursor-pointer'
-								onClick={() => router.push(`/${region.name.toLowerCase()}`)}
+								onClick={() =>
+									router.push(`/region/${region.name.toLowerCase()}`)
+								}
 							>
 								<p className='p-3 bg-black text-white rounded uppercase w-[65%] md:w-[50%] text-center'>
 									{region.initial}
