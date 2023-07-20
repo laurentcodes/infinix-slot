@@ -140,8 +140,14 @@ export default function RegionSpin() {
 								<p className='uppercase text-center font-bold'>Winner</p>
 
 								{type === 'norm' && <p>Store: {winner.city}</p>}
+
 								{type !== 'norm' && <p>Name: {winner.customer}</p>}
-								<p>Region: {winner.region}</p>
+
+								{type === 'norm' ? (
+									<p>Region: {winner.region}</p>
+								) : (
+									<p>Store: {winner.region}</p>
+								)}
 								<p>Phone: {winner.phone}</p>
 							</div>
 						</div>
