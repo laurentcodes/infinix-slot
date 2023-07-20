@@ -48,14 +48,14 @@ export default async function handler(req, res) {
 		try {
 			let ticket = await Ticket.findOne({ ticketNo });
 
-			if (ticket) {
-				throw new CustomError('Error', 401, 'Ticket already exists');
-			}
+			// if (ticket) {
+			// 	throw new CustomError('Error', 401, 'Ticket already exists');
+			// }
 
 			ticket = new Ticket({
 				region,
 				city,
-				customer,
+				customer: customer || ' ',
 				phone,
 				ticketNo,
 			});

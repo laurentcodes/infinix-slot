@@ -29,9 +29,9 @@ export const regions = [
 	},
 ];
 
-export const lagRegions = [
+export const KARegions = [
 	{
-		name: 'Royaling',
+		name: 'Royalline',
 		initial: 'Ro',
 	},
 	{
@@ -61,5 +61,9 @@ export const lagRegions = [
 	{
 		name: 'Slot',
 		initial: 'Sl',
+	},
+	{
+		name: 'Solat',
+		initial: 'So',
 	},
 ];
