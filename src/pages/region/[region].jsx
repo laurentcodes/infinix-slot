@@ -15,7 +15,9 @@ import trophy from '../../../public/assets/trophy.png';
 export default function RegionSpin() {
 	const router = useRouter();
 
-	const { region } = router.query;
+	const { region, type } = router.query;
+
+	console.log(type);
 
 	const [loading, setLoading] = useState(false);
 	const [tickets, setTickets] = useState([]);
@@ -137,7 +139,8 @@ export default function RegionSpin() {
 							<div className='text-center flex flex-col gap-12 text-3xl'>
 								<p className='uppercase text-center font-bold'>Winner</p>
 
-								<p>Name: {winner.customer}</p>
+								{type === 'norm' && <p>Store: {winner.city}</p>}
+								{type !== 'norm' && <p>Name: {winner.customer}</p>}
 								<p>Region: {winner.region}</p>
 								<p>Phone: {winner.phone}</p>
 							</div>
