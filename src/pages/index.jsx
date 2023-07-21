@@ -6,12 +6,12 @@ const Home = () => {
 	const router = useRouter();
 
 	return (
-		<div className='h-full md:h-screen w-screen bg-green-700 p-6'>
+		<div className='lg:h-screen w-screen bg-green-700 p-6'>
 			<div>
 				<h3 className='text-3xl uppercase text-white mb-6'>All Regions</h3>
 
 				{regions.length > 0 && (
-					<div className='grid grid-cols-2 md:grid-cols-6 gap-4'>
+					<div className='grid grid-cols-2 md:grid-cols-6 gap-4 uppercase'>
 						{regions.map((region) => (
 							<div
 								key={region.initial}
@@ -40,7 +40,7 @@ const Home = () => {
 				<h3 className='text-3xl uppercase text-white mb-6'>Key Account</h3>
 
 				{KARegions.length > 0 && (
-					<div className='grid grid-cols-2 md:grid-cols-6 gap-4'>
+					<div className='grid grid-cols-2 md:grid-cols-6 gap-4 uppercase'>
 						{KARegions.map((region) => (
 							<div
 								key={region.initial}
