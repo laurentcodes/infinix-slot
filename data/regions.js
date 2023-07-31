@@ -39,7 +39,7 @@ export const KARegions = [
 		initial: 'Mc',
 	},
 	{
-		name: 'Ponitek',
+		name: 'Pointek',
 		initial: 'Po',
 	},
 	{
@@ -51,7 +51,7 @@ export const KARegions = [
 		initial: 'Fi',
 	},
 	{
-		name: '3CHub',
+		name: '3C Hub',
 		initial: '3c',
 	},
 	{
@@ -62,8 +62,8 @@ export const KARegions = [
 		name: 'Slot',
 		initial: 'Sl',
 	},
-	{
-		name: 'Solat',
-		initial: 'So',
-	},
+	// {
+	// 	name: 'Solat',
+	// 	initial: 'So',
+	// },
 ];

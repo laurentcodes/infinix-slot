@@ -138,10 +138,11 @@ export default function RegionSpin() {
 
 							<div className='text-center flex flex-col gap-12 text-3xl'>
 								<p className='uppercase text-center font-bold'>Winner</p>
-
 								{type === 'norm' && <p>Store: {winner.city}</p>}
 
-								{type !== 'norm' && <p>Name: {winner.customer}</p>}
+								{type !== 'norm' && winner.customer !== ' ' && (
+									<p>Name: {winner.customer}</p>
+								)}
 
 								{type === 'norm' ? (
 									<p>Region: {winner.region}</p>
