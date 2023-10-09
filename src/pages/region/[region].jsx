@@ -17,8 +17,6 @@ export default function RegionSpin() {
 
 	const { region, type } = router.query;
 
-	console.log(type);
-
 	const [loading, setLoading] = useState(false);
 	const [tickets, setTickets] = useState([]);
 	const [value, setValue] = useState('');
@@ -60,7 +58,7 @@ export default function RegionSpin() {
 	if (loading) {
 		return (
 			<span className='flex w-screen h-screen items-center justify-center'>
-				<span class='animate-ping absolute h-16 w-16 rounded-full bg-green-400'></span>
+				<span className='animate-ping absolute h-16 w-16 rounded-full bg-green-400'></span>
 			</span>
 		);
 	}

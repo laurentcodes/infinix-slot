@@ -72,7 +72,15 @@ export default async function handler(req, res) {
 				code: err.code || 500,
 			});
 		}
-	} else {
+	}
+	// else if (method === 'DELETE') {
+	// 	let tickets = await Ticket.deleteMany({ date: { $lt: '2023-10-07' } });
+
+	// 	console.log(tickets);
+
+	// 	res.status(204).json({ data: tickets });
+	// }
+	else {
 		res.status(405).send({ message: 'Invalid' });
 	}
 }
