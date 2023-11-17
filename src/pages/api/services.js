@@ -7,8 +7,10 @@ export const getTickets = async () => {
 	return data;
 };
 
-export const getRegionTickets = async (region) => {
-	const { data } = await axios.get(`/api/tickets?regionName=${region}`);
+export const getRegionTickets = async (region, device) => {
+	const { data } = await axios.get(
+		`/api/tickets?regionName=${region}&deviceType=${device}`
+	);
 
 	return data;
 };

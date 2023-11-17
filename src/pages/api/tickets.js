@@ -10,18 +10,21 @@ connectDB();
 export default async function handler(req, res) {
 	const { method } = req;
 
-	const { region, city, customer, phone, ticketNo } = req.body;
+	const { region, city, customer, phone, deviceBought, ticketNo } = req.body;
 
-	const { regionName } = req.query;
+	const { regionName, deviceType } = req.query;
 
 	if (method === 'GET') {
-		if (regionName) {
+		if (regionName && deviceType) {
 			try {
 				let tickets = await Ticket.find({
 					region: { $regex: regionName, $options: 'i' },
+					deviceBought: { $regex: deviceType, $options: 'i' },
 				});
+
 				const count = await Ticket.countDocuments({
 					region: { $regex: regionName, $options: 'i' },
+					deviceBought: { $regex: deviceType, $options: 'i' },
 				});
 
 				res.status(200).json({ data: tickets, total: count });
@@ -57,13 +60,14 @@ export default async function handler(req, res) {
 				city,
 				customer: customer || ' ',
 				phone,
+				deviceBought,
 				ticketNo,
 			});
 
 			await ticket.save();
 
 			res.status(201).json({
-				data: { region, city, customer, phone, ticketNo },
+				data: { region, city, customer, phone, deviceBought, ticketNo },
 				status: res.statusCode,
 			});
 		} catch (err) {

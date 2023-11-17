@@ -17,6 +17,9 @@ const TicketSchema = mongoose.Schema({
 		type: String,
 		required: true,
 	},
+	deviceBought: {
+		type: String,
+	},
 	ticketNo: {
 		type: Number,
 		required: true,
