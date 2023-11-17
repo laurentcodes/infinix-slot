@@ -29,11 +29,11 @@ export default function RegionSpin() {
 
 			<h3 className='my-5 text-3xl font-bold'>{region?.toUpperCase() || ''}</h3>
 
-			<div className='flex justify-center items-center h-full'>
+			<div className='flex flex-col md:flex-row justify-center items-center h-full'>
 				{devices.map((device) => (
 					<div
 						key={device.key}
-						className='bg-green-700 py-4 px-5 m-3 rounded-2xl cursor-pointer'
+						className='bg-green-700 py-4 px-5 m-3 rounded-2xl cursor-pointer w-full md:w-48 text-center'
 						onClick={() =>
 							router.push({
 								pathname: '/tickets/[region]',
