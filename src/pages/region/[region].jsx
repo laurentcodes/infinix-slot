@@ -27,7 +27,7 @@ export default function RegionSpin() {
 				onClick={() => router.push('/')}
 			/>
 
-			<h3 className='my-5 text-3xl font-bold'>{region.toUpperCase()}</h3>
+			<h3 className='my-5 text-3xl font-bold'>{region?.toUpperCase() || ''}</h3>
 
 			<div className='flex justify-center items-center h-full'>
 				{devices.map((device) => (
