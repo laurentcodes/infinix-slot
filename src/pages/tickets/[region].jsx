@@ -12,12 +12,12 @@ import { getRegionTickets } from '../api/services';
 import logo from '../../../public/assets/infinix-logo.png';
 import trophy from '../../../public/assets/trophy.png';
 
-const devices = [
-	{ name: 'ZERO SERIES', key: 'zero' },
-	{ name: 'NOTE SERIES', key: 'note' },
-	{ name: 'HOT SERIES', key: 'hot' },
-	{ name: 'SMART SERIES', key: 'smart' },
-];
+// const devices = [
+// 	{ name: 'ZERO SERIES', key: 'zero' },
+// 	{ name: 'NOTE SERIES', key: 'note' },
+// 	{ name: 'HOT SERIES', key: 'hot' },
+// 	{ name: 'SMART SERIES', key: 'smart' },
+// ];
 
 export default function RegionSpin() {
 	const router = useRouter();
@@ -34,10 +34,14 @@ export default function RegionSpin() {
 
 	useEffect(() => {
 		setLoading(true);
-		getRegionTickets(region, device).then((res) => {
+		getRegionTickets(region).then((res) => {
 			setTickets(res.data);
 			setLoading(false);
 		});
+		// getRegionTickets(region, device).then((res) => {
+		// 	setTickets(res.data);
+		// 	setLoading(false);
+		// });
 	}, [device, region]);
 
 	const ref = useRef(null);
@@ -83,9 +87,9 @@ export default function RegionSpin() {
 				onClick={() => router.push('/')}
 			/>
 
-			<h3 className='text-bold text-3xl'>
+			{/* <h3 className='text-bold text-3xl'>
 				{devices.find((item) => item.key === device)?.name || ''}
-			</h3>
+			</h3> */}
 
 			{tickets.length > 0 ? (
 				<div className='flex flex-col md:flex-row justify-center items-center gap-6 w-full mt-44'>

@@ -18,7 +18,8 @@ const Home = () => {
 								className='bg-green-300 p-3 basis-1/2 md:basis-1/4 flex flex-col gap-3 justify-center items-center rounded-md cursor-pointer'
 								onClick={() =>
 									router.push({
-										pathname: '/region/[region]',
+										// pathname: '/region/[region]',
+										pathname: '/tickets/[region]',
 										query: {
 											region: region.name.toLowerCase(),
 											type: 'norm',

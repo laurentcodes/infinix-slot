@@ -15,16 +15,17 @@ export default async function handler(req, res) {
 	const { regionName, deviceType } = req.query;
 
 	if (method === 'GET') {
-		if (regionName && deviceType) {
+		// if (regionName && deviceType) {
+		if (regionName) {
 			try {
 				let tickets = await Ticket.find({
 					region: { $regex: regionName, $options: 'i' },
-					deviceBought: { $regex: deviceType, $options: 'i' },
+					// deviceBought: { $regex: deviceType, $options: 'i' },
 				});
 
 				const count = await Ticket.countDocuments({
 					region: { $regex: regionName, $options: 'i' },
-					deviceBought: { $regex: deviceType, $options: 'i' },
+					// deviceBought: { $regex: deviceType, $options: 'i' },
 				});
 
 				res.status(200).json({ data: tickets, total: count });
