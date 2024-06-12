@@ -6,7 +6,7 @@ const Home = () => {
 	const router = useRouter();
 
 	return (
-		<div className='lg:h-screen w-screen bg-green-700 p-6'>
+		<div className='h-full w-screen bg-green-700 p-6'>
 			<div>
 				<h3 className='text-3xl uppercase text-white mb-6'>All Regions</h3>
 
