@@ -1,35 +1,35 @@
 import { useRouter } from 'next/router';
 
 import { regions, KARegions } from '../../data/regions';
-import { addTicket } from './api/services';
+// import { addTicket } from './api/services';
 
-import { phc } from '../../data/data';
+// import { phc } from '../../data/data';
 
 const Home = () => {
 	const router = useRouter();
 
-	const formattedData = phc.map((reg) => {
-		return {
-			region: 'Port Harcourt',
-			city: reg['Store Name'],
-			customer: reg['Customer Name'],
-			phone: reg['Customer Phone number'],
-			deviceBought: reg['DEVICE BOUGHT'],
-			ticketNo: reg['TICKET NO'],
-		};
-	});
+	// const formattedData = phc.map((reg) => {
+	// 	return {
+	// 		region: 'Port Harcourt',
+	// 		city: reg['Store Name'],
+	// 		customer: reg['Customer Name'],
+	// 		phone: reg['Customer Phone number'],
+	// 		deviceBought: reg['DEVICE BOUGHT'],
+	// 		ticketNo: reg['TICKET NO'],
+	// 	};
+	// });
 
-	const runAdd = () => {
-		console.log(formattedData.length);
+	// const runAdd = () => {
+	// 	console.log(formattedData.length);
 
-		for (let i = 0; i < formattedData.length; i++) {
-			const element = formattedData[i];
+	// 	for (let i = 0; i < formattedData.length; i++) {
+	// 		const element = formattedData[i];
 
-			// console.log(element);
+	// 		// console.log(element);
 
-			addTicket(element).then((res) => console.log(res));
-		}
-	};
+	// 		addTicket(element).then((res) => console.log(res));
+	// 	}
+	// };
 
 	return (
 		<div className='h-screen w-screen bg-green-700 p-6'>
