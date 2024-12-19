@@ -1,6 +1,6 @@
 import { useRouter } from 'next/router';
 
-import { regions, KARegions } from '../../data/regions';
+import { regions } from '../../data/regions';
 // import { addTicket } from './api/services';
 
 // import { phc } from '../../data/data';
@@ -70,7 +70,7 @@ const Home = () => {
 				)}
 			</div>
 
-			<div className='mt-12'>
+			{/* <div className='mt-12'>
 				<h3 className='text-3xl uppercase text-white mb-6'>Key Account</h3>
 
 				{KARegions.length > 0 && (
@@ -91,7 +91,7 @@ const Home = () => {
 						))}
 					</div>
 				)}
-			</div>
+			</div> */}
 		</div>
 	);
 };
