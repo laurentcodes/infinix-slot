@@ -11,13 +11,13 @@ export const regions = [
 		name: 'Ibadan',
 		initial: 'Ib',
 	},
+	// {
+	// 	name: 'Kaduna',
+	// 	initial: 'Kd',
+	// },
 	{
-		name: 'Kaduna',
-		initial: 'Kd',
-	},
-	{
-		name: 'Kano',
-		initial: 'Kn',
+		name: 'Kaduna & Kano',
+		initial: 'Kd & Kn',
 	},
 	{
 		name: 'Onitsha',

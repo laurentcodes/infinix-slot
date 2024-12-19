@@ -1,14 +1,44 @@
 import { useRouter } from 'next/router';
 
 import { regions, KARegions } from '../../data/regions';
+import { addTicket } from './api/services';
+
+import { phc } from '../../data/data';
 
 const Home = () => {
 	const router = useRouter();
 
+	const formattedData = phc.map((reg) => {
+		return {
+			region: 'Port Harcourt',
+			city: reg['Store Name'],
+			customer: reg['Customer Name'],
+			phone: reg['Customer Phone number'],
+			deviceBought: reg['DEVICE BOUGHT'],
+			ticketNo: reg['TICKET NO'],
+		};
+	});
+
+	const runAdd = () => {
+		console.log(formattedData.length);
+
+		for (let i = 0; i < formattedData.length; i++) {
+			const element = formattedData[i];
+
+			// console.log(element);
+
+			addTicket(element).then((res) => console.log(res));
+		}
+	};
+
 	return (
-		<div className='h-full w-screen bg-green-700 p-6'>
+		<div className='h-screen w-screen bg-green-700 p-6'>
 			<div>
 				<h3 className='text-3xl uppercase text-white mb-6'>All Regions</h3>
+				{/* 
+				<button className='p-3 bg-white my-3' onClick={runAdd}>
+					Add New
+				</button> */}
 
 				{regions.length > 0 && (
 					<div className='grid grid-cols-2 md:grid-cols-6 gap-4 uppercase'>
@@ -21,7 +51,10 @@ const Home = () => {
 										// pathname: '/region/[region]',
 										pathname: '/tickets/[region]',
 										query: {
-											region: region.name.toLowerCase(),
+											region:
+												region.name.toLowerCase() === 'kaduna & kano'
+													? 'kano'
+													: region.name.toLowerCase(),
 											type: 'norm',
 										},
 									})
