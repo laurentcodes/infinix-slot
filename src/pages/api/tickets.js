@@ -77,15 +77,16 @@ export default async function handler(req, res) {
 				code: err.code || 500,
 			});
 		}
-	}
-	// else if (method === 'DELETE') {
-	// 	let tickets = await Ticket.deleteMany({ date: { $lt: '2023-10-07' } });
+	} else if (method === 'DELETE') {
+		// let tickets = await Ticket.deleteMany({ date: { $lt: '2023-10-07' } });
 
-	// 	console.log(tickets);
+		// console.log(tickets);
 
-	// 	res.status(204).json({ data: tickets });
-	// }
-	else {
+		// delete all tickets with region name passed
+		let tickets = await Ticket.deleteMany({ region: regionName });
+
+		res.status(204).json({ data: tickets });
+	} else {
 		res.status(405).send({ message: 'Invalid' });
 	}
 }

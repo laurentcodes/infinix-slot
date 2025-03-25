@@ -1,71 +1,72 @@
 import { useRouter } from 'next/router';
 
 import { regions } from '../../data/regions';
-// import { addTicket } from './api/services';
+import { addTicket } from './api/services';
 
-// import { phc } from '../../data/data';
+import { kano } from '../../data/data';
 
 const Home = () => {
 	const router = useRouter();
 
-	// const formattedData = phc.map((reg) => {
-	// 	return {
-	// 		region: 'Port Harcourt',
-	// 		city: reg['Store Name'],
-	// 		customer: reg['Customer Name'],
-	// 		phone: reg['Customer Phone number'],
-	// 		deviceBought: reg['DEVICE BOUGHT'],
-	// 		ticketNo: reg['TICKET NO'],
-	// 	};
-	// });
+	const formattedData = kano.map((reg) => {
+		return {
+			region: 'Kano',
+			city: reg['Selectshopname'],
+			customer: reg['CustomersName'],
+			phone: reg['Customersphonenumber'],
+			deviceBought: reg['Modelpurchase'],
+			ticketNo: reg['Raffleticketnumber'],
+		};
+	});
 
-	// const runAdd = () => {
-	// 	console.log(formattedData.length);
+	const runAdd = () => {
+		console.log(formattedData.length);
 
-	// 	for (let i = 0; i < formattedData.length; i++) {
-	// 		const element = formattedData[i];
+		for (let i = 0; i < formattedData.length; i++) {
+			const element = formattedData[i];
 
-	// 		// console.log(element);
+			// console.log(element);
 
-	// 		addTicket(element).then((res) => console.log(res));
-	// 	}
-	// };
+			addTicket(element).then((res) => console.log(res));
+		}
+	};
 
 	return (
 		<div className='h-screen w-screen bg-green-700 p-6'>
 			<div>
 				<h3 className='text-3xl uppercase text-white mb-6'>All Regions</h3>
-				{/* 
-				<button className='p-3 bg-white my-3' onClick={runAdd}>
+
+				{/* <button className='p-3 bg-white my-3 rounded-md' onClick={runAdd}>
 					Add New
 				</button> */}
 
 				{regions.length > 0 && (
 					<div className='grid grid-cols-2 md:grid-cols-6 gap-4 uppercase'>
-						{regions.map((region) => (
-							<div
-								key={region.initial}
-								className='bg-green-300 p-3 basis-1/2 md:basis-1/4 flex flex-col gap-3 justify-center items-center rounded-md cursor-pointer'
-								onClick={() =>
-									router.push({
-										// pathname: '/region/[region]',
-										pathname: '/tickets/[region]',
-										query: {
-											region:
-												region.name.toLowerCase() === 'kaduna & kano'
-													? 'kano'
-													: region.name.toLowerCase(),
-											type: 'norm',
-										},
-									})
-								}
-							>
-								<p className='p-3 bg-black text-white rounded uppercase w-[65%] md:w-[50%] text-center'>
-									{region.initial}
-								</p>
-								<p>{region.name}</p>
-							</div>
-						))}
+						{regions
+							?.sort((a, b) => a.name.localeCompare(b.name))
+							.map((region) => (
+								<div
+									key={region.initial}
+									className='bg-green-300 p-3 basis-1/2 md:basis-1/4 flex flex-col gap-3 justify-center items-center rounded-md cursor-pointer'
+									onClick={() =>
+										router.push({
+											pathname: '/tickets/[region]',
+											query: {
+												region:
+													region.name.toLowerCase() === 'kaduna & kano'
+														? 'kano'
+														: region.name.toLowerCase(),
+												type: 'norm',
+											},
+										})
+									}
+								>
+									<p className='p-3 bg-black text-white rounded uppercase w-[65%] md:w-[50%] text-center'>
+										{region.initial}
+									</p>
+									<p>{region.name}</p>
+								</div>
+							))}
 					</div>
 				)}
 			</div>
