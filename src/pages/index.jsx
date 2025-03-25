@@ -3,21 +3,21 @@ import { useRouter } from 'next/router';
 import { regions } from '../../data/regions';
 import { addTicket } from './api/services';
 
-import { kano } from '../../data/data';
+// import { kano } from '../../data/data';
 
 const Home = () => {
 	const router = useRouter();
 
-	const formattedData = kano.map((reg) => {
-		return {
-			region: 'Kano',
-			city: reg['Selectshopname'],
-			customer: reg['CustomersName'],
-			phone: reg['Customersphonenumber'],
-			deviceBought: reg['Modelpurchase'],
-			ticketNo: reg['Raffleticketnumber'],
-		};
-	});
+	// const formattedData = kano.map((reg) => {
+	// 	return {
+	// 		region: 'Kano',
+	// 		city: reg['Selectshopname'],
+	// 		customer: reg['CustomersName'],
+	// 		phone: reg['Customersphonenumber'],
+	// 		deviceBought: reg['Modelpurchase'],
+	// 		ticketNo: reg['Raffleticketnumber'],
+	// 	};
+	// });
 
 	const runAdd = () => {
 		console.log(formattedData.length);
