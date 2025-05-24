@@ -1,9 +1,9 @@
 import { useRouter } from 'next/router';
 
 import { regions } from '../../data/regions';
-import { addTicket } from './api/services';
+// import { addTicket } from './api/services';
 
-import { lagos } from '../../data/data';
+// import { lagos } from '../../data/data';
 
 const Home = () => {
 	const router = useRouter();
