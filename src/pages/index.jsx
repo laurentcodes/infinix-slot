@@ -8,28 +8,28 @@ import { regions } from '../../data/regions';
 const Home = () => {
 	const router = useRouter();
 
-	const formattedData = lagos.map((reg) => {
-		return {
-			region: 'Lagos',
-			city: reg['SelectStoreName'],
-			customer: reg["CUSTOMER'SNAME"],
-			phone: reg["CUSTOMER'SPHONENUMBER"],
-			deviceBought: reg['PHONEPURCHASED'],
-			ticketNo: reg['TICKETNUMBER'],
-		};
-	});
+	// const formattedData = lagos.map((reg) => {
+	// 	return {
+	// 		region: 'Lagos',
+	// 		city: reg['SelectStoreName'],
+	// 		customer: reg["CUSTOMER'SNAME"],
+	// 		phone: reg["CUSTOMER'SPHONENUMBER"],
+	// 		deviceBought: reg['PHONEPURCHASED'],
+	// 		ticketNo: reg['TICKETNUMBER'],
+	// 	};
+	// });
 
-	const runAdd = () => {
-		console.log(formattedData.length);
+	// const runAdd = () => {
+	// 	console.log(formattedData.length);
 
-		for (let i = 0; i < formattedData.length; i++) {
-			const element = formattedData[i];
+	// 	for (let i = 0; i < formattedData.length; i++) {
+	// 		const element = formattedData[i];
 
-			console.log(element);
+	// 		console.log(element);
 
-			// addTicket(element).then((res) => console.log(res));
-		}
-	};
+	// 		// addTicket(element).then((res) => console.log(res));
+	// 	}
+	// };
 
 	return (
 		<div className='h-screen w-screen bg-green-700 p-6'>
