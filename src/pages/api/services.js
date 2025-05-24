@@ -16,8 +16,6 @@ export const getRegionTickets = async (region, device) => {
 };
 
 export const addTicket = async (value) => {
-	console.log(value);
-
 	const { data } = await axios.post('/api/tickets', value);
 
 	return data;
