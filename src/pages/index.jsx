@@ -1,19 +1,19 @@
 import { useRouter } from 'next/router';
 
 import { regions } from '../../data/regions';
-// import { addTicket } from './api/services';
+import { addTicket } from './api/services';
 
-// import { lagos } from '../../data/data';
+// import { phc } from '../../data/data';
 
 const Home = () => {
 	const router = useRouter();
 
-	// const formattedData = lagos.map((reg) => {
+	// const formattedData = phc.map((reg) => {
 	// 	return {
-	// 		region: 'Lagos',
-	// 		city: reg['SelectStoreName'],
+	// 		region: 'Port Harcourt',
+	// 		city: reg['SelectstoreName'],
 	// 		customer: reg["CUSTOMER'SNAME"],
-	// 		phone: reg["CUSTOMER'SPHONENUMBER"],
+	// 		phone: reg["CUSTOMR'SPHONENUMBER"],
 	// 		deviceBought: reg['PHONEPURCHASED'],
 	// 		ticketNo: reg['TICKETNUMBER'],
 	// 	};
@@ -22,12 +22,19 @@ const Home = () => {
 	// const runAdd = () => {
 	// 	console.log(formattedData.length);
 
+	// 	let done = 0;
+
 	// 	for (let i = 0; i < formattedData.length; i++) {
 	// 		const element = formattedData[i];
 
-	// 		console.log(element);
+	// 		// console.log(element);
 
-	// 		// addTicket(element).then((res) => console.log(res));
+	// 		addTicket(element).then((res) => {
+	// 			done++;
+	// 			console.log(res);
+
+	// 			console.log(`${done} of ${formattedData.length} done`);
+	// 		});
 	// 	}
 	// };
 
@@ -35,8 +42,8 @@ const Home = () => {
 		<div className='h-screen w-screen bg-green-700 p-6'>
 			<div>
 				<h3 className='text-3xl uppercase text-white mb-6'>All Regions</h3>
-
-				{/* <button className='p-3 bg-white my-3 rounded-md' onClick={runAdd}>
+				{/* 
+				<button className='p-3 bg-white my-3 rounded-md' onClick={runAdd}>
 					Add New
 				</button> */}
 

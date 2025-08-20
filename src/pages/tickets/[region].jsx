@@ -34,6 +34,7 @@ export default function RegionSpin() {
 
 	useEffect(() => {
 		setLoading(true);
+		
 		getRegionTickets(region).then((res) => {
 			setTickets(res.data);
 			setLoading(false);
