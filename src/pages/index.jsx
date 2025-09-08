@@ -3,47 +3,48 @@ import { useRouter } from 'next/router';
 import { regions } from '../../data/regions';
 import { addTicket } from './api/services';
 
-// import { phc } from '../../data/data';
+import { all } from '../../data/data';
 
 const Home = () => {
 	const router = useRouter();
 
-	// const formattedData = phc.map((reg) => {
-	// 	return {
-	// 		region: 'Port Harcourt',
-	// 		city: reg['SelectstoreName'],
-	// 		customer: reg["CUSTOMER'SNAME"],
-	// 		phone: reg["CUSTOMR'SPHONENUMBER"],
-	// 		deviceBought: reg['PHONEPURCHASED'],
-	// 		ticketNo: reg['TICKETNUMBER'],
-	// 	};
-	// });
+	const formattedData = all.map((reg) => {
+		return {
+			region: 'All Regions',
+			city: reg['SelectstoreName'],
+			customer: reg["CUSTOMER'SNAME"],
+			phone: reg["CUSTOMER'SPHONENUMBER"],
+			deviceBought: reg['PHONEPURCHASED'],
+			ticketNo: reg['TICKETNUMBER'],
+		};
+	});
 
-	// const runAdd = () => {
-	// 	console.log(formattedData.length);
+	const runAdd = () => {
+		console.log(formattedData.length);
 
-	// 	let done = 0;
+		let done = 0;
 
-	// 	for (let i = 0; i < formattedData.length; i++) {
-	// 		const element = formattedData[i];
+		for (let i = 0; i < formattedData.length; i++) {
+			const element = formattedData[i];
 
-	// 		// console.log(element);
+			// console.log(element);
 
-	// 		addTicket(element).then((res) => {
-	// 			done++;
-	// 			console.log(res);
+			addTicket(element).then((res) => {
+				done++;
+				console.log(res);
 
-	// 			console.log(`${done} of ${formattedData.length} done`);
-	// 		});
-	// 	}
-	// };
+				console.log(`${done} of ${formattedData.length} done`);
+			});
+		}
+	};
 
 	return (
 		<div className='h-screen w-screen bg-green-700 p-6'>
 			<div>
-				<h3 className='text-3xl uppercase text-white mb-6'>All Regions</h3>
-				{/* 
-				<button className='p-3 bg-white my-3 rounded-md' onClick={runAdd}>
+				{/* <h3 className='text-3xl uppercase text-white mb-6'>All Regions</h3> */}
+				<h3 className='text-3xl uppercase text-white mb-6'>Grand Prize</h3>
+
+				{/* <button className='p-3 bg-white my-3 rounded-md' onClick={runAdd}>
 					Add New
 				</button> */}
 

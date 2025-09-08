@@ -1,16 +1,20 @@
 export const regions = [
 	{
-		name: 'Lagos',
-		initial: 'La',
+		name: 'All Regions',
+		initial: 'All',
 	},
-	{
-		name: 'Port Harcourt',
-		initial: 'Ph',
-	},
-	{
-		name: 'Ibadan',
-		initial: 'Ib',
-	},
+	// {
+	// 	name: 'Lagos',
+	// 	initial: 'La',
+	// },
+	// {
+	// 	name: 'Port Harcourt',
+	// 	initial: 'Ph',
+	// },
+	// {
+	// 	name: 'Ibadan',
+	// 	initial: 'Ib',
+	// },
 	// {
 	// 	name: 'Kaduna',
 	// 	initial: 'Kd',
@@ -19,18 +23,18 @@ export const regions = [
 	// 	name: 'Kano',
 	// 	initial: 'Kn',
 	// },
-	{
-		name: 'Kaduna & Kano',
-		initial: 'Kd & Kn',
-	},
-	{
-		name: 'Onitsha',
-		initial: 'On',
-	},
-	{
-		name: 'Abuja',
-		initial: 'Ab',
-	},
+	// {
+	// 	name: 'Kaduna & Kano',
+	// 	initial: 'Kd & Kn',
+	// },
+	// {
+	// 	name: 'Onitsha',
+	// 	initial: 'On',
+	// },
+	// {
+	// 	name: 'Abuja',
+	// 	initial: 'Ab',
+	// },
 ];
 
 export const KARegions = [
