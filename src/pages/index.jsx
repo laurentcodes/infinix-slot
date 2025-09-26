@@ -44,9 +44,9 @@ const Home = () => {
 				<h3 className='text-3xl uppercase text-white mb-6'>All Regions</h3>
 				<h3 className='text-3xl uppercase text-white mb-6'>Grand Prize</h3>
 
-				<button className='p-3 bg-white my-3 rounded-md' onClick={runAdd}>
+				{/* <button className='p-3 bg-white my-3 rounded-md' onClick={runAdd}>
 					Add New
-				</button>
+				</button> */}
 
 				{regions.length > 0 && (
 					<div className='grid grid-cols-2 md:grid-cols-6 gap-4 uppercase'>
