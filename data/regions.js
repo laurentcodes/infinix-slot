@@ -1,8 +1,8 @@
 export const regions = [
-	{
-		name: 'All Regions',
-		initial: 'All',
-	},
+	// {
+	// 	name: 'All Regions',
+	// 	initial: 'All',
+	// },
 	// {
 	// 	name: 'Lagos',
 	// 	initial: 'La',
@@ -27,10 +27,10 @@ export const regions = [
 	// 	name: 'Kaduna & Kano',
 	// 	initial: 'Kd & Kn',
 	// },
-	// {
-	// 	name: 'Onitsha',
-	// 	initial: 'On',
-	// },
+	{
+		name: 'Onitsha',
+		initial: 'On',
+	},
 	// {
 	// 	name: 'Abuja',
 	// 	initial: 'Ab',

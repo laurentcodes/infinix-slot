@@ -1,16 +1,16 @@
 import { useRouter } from 'next/router';
 
 import { regions } from '../../data/regions';
-import { addTicket } from './api/services';
+// import { addTicket } from './api/services';
 
-// import { all } from '../../data/data';
+// import { onitsha } from '../../data/data';
 
 const Home = () => {
 	const router = useRouter();
 
-	// const formattedData = all.map((reg) => {
+	// const formattedData = onitsha.map((reg) => {
 	// 	return {
-	// 		region: 'All Regions',
+	// 		region: 'Onitsha',
 	// 		city: reg['SelectstoreName'],
 	// 		customer: reg["CUSTOMER'SNAME"],
 	// 		phone: reg["CUSTOMER'SPHONENUMBER"],
@@ -27,7 +27,7 @@ const Home = () => {
 	// 	for (let i = 0; i < formattedData.length; i++) {
 	// 		const element = formattedData[i];
 
-	// 		// console.log(element);
+	// 		console.log(element);
 
 	// 		addTicket(element).then((res) => {
 	// 			done++;
@@ -41,12 +41,12 @@ const Home = () => {
 	return (
 		<div className='h-screen w-screen bg-green-700 p-6'>
 			<div>
-				{/* <h3 className='text-3xl uppercase text-white mb-6'>All Regions</h3> */}
+				<h3 className='text-3xl uppercase text-white mb-6'>All Regions</h3>
 				<h3 className='text-3xl uppercase text-white mb-6'>Grand Prize</h3>
 
-				{/* <button className='p-3 bg-white my-3 rounded-md' onClick={runAdd}>
+				<button className='p-3 bg-white my-3 rounded-md' onClick={runAdd}>
 					Add New
-				</button> */}
+				</button>
 
 				{regions.length > 0 && (
 					<div className='grid grid-cols-2 md:grid-cols-6 gap-4 uppercase'>
