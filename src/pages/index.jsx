@@ -1,21 +1,21 @@
 import { useRouter } from 'next/router';
 
-import { regions } from '../../data/regions';
+// import { regions } from '../../data/regions';
 // import { addTicket } from './api/services';
 
-// import { onitsha } from '../../data/data';
+// import { all } from '../../data/data';
 
 const Home = () => {
 	const router = useRouter();
 
-	// const formattedData = onitsha.map((reg) => {
+	// const formattedData = all.map((reg) => {
 	// 	return {
-	// 		region: 'Onitsha',
-	// 		city: reg['SelectstoreName'],
-	// 		customer: reg["CUSTOMER'SNAME"],
-	// 		phone: reg["CUSTOMER'SPHONENUMBER"],
-	// 		deviceBought: reg['PHONEPURCHASED'],
-	// 		ticketNo: reg['TICKETNUMBER'],
+	// 		region: reg['SalesRegion'],
+	// 		city: reg['Customer’sAddress'],
+	// 		customer: reg['Customer’sName'],
+	// 		phone: reg['Customer’sPhonenumber'],
+	// 		deviceBought: reg['Wishselection'],
+	// 		ticketNo: reg['YourPhoneIMEI'],
 	// 	};
 	// });
 
@@ -48,7 +48,7 @@ const Home = () => {
 					Add New
 				</button> */}
 
-				{regions.length > 0 && (
+				{/* {regions.length > 0 && (
 					<div className='grid grid-cols-2 md:grid-cols-6 gap-4 uppercase'>
 						{regions
 							?.sort((a, b) => a.name.localeCompare(b.name))
@@ -76,7 +76,29 @@ const Home = () => {
 								</div>
 							))}
 					</div>
-				)}
+				)} */}
+
+				{/* all regions under single tag */}
+				<div className='grid grid-cols-2 md:grid-cols-6 gap-4 uppercase'>
+					<div
+						className='bg-green-300 p-3 basis-1/2 md:basis-1/4 flex flex-col gap-3 justify-center items-center rounded-md cursor-pointer'
+						onClick={() =>
+							router.push({
+								pathname: '/tickets/[region]',
+								query: {
+									region: 'all',
+									type: 'norm',
+								},
+							})
+						}
+					>
+						<p className='p-3 bg-black text-white rounded uppercase w-[65%] md:w-[50%] text-center'>
+							All
+						</p>
+
+						<p>All Regions</p>
+					</div>
+				</div>
 			</div>
 
 			{/* <div className='mt-12'>

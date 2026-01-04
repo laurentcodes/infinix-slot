@@ -7,7 +7,7 @@ import { Modal } from 'flowbite-react';
 import SlotCounter from 'react-slot-counter';
 import ConfettiExplosion from 'react-confetti-explosion';
 
-import { getRegionTickets } from '../api/services';
+import { getRegionTickets, getTickets } from '../api/services';
 
 import logo from '../../../public/assets/infinix-logo.png';
 import trophy from '../../../public/assets/trophy.png';
@@ -34,11 +34,19 @@ export default function RegionSpin() {
 
 	useEffect(() => {
 		setLoading(true);
-		
-		getRegionTickets(region).then((res) => {
-			setTickets(res.data);
-			setLoading(false);
-		});
+
+		// if region is 'all', get all tickets without filtering
+		if (region === 'all') {
+			getTickets().then((res) => {
+				setTickets(res.data);
+				setLoading(false);
+			});
+		} else {
+			getRegionTickets(region).then((res) => {
+				setTickets(res.data);
+				setLoading(false);
+			});
+		}
 		// getRegionTickets(region, device).then((res) => {
 		// 	setTickets(res.data);
 		// 	setLoading(false);
@@ -98,7 +106,7 @@ export default function RegionSpin() {
 						<SlotCounter
 							ref={ref}
 							startValue={'     '}
-							value={value}
+							value={value ? String(value).slice(0, 8) : ''}
 							animateUnchanged={true}
 							useMonospaceWidth
 							startValueOnce
@@ -149,7 +157,7 @@ export default function RegionSpin() {
 
 							<Image src={trophy} alt='Image of Trophy' width={150} />
 
-							<div className='text-center flex flex-col gap-12 text-3xl'>
+							{/* <div className='text-center flex flex-col gap-12 text-3xl'>
 								<p className='uppercase text-center font-bold'>Winner</p>
 								{type === 'norm' && <p>Store: {winner.city}</p>}
 
@@ -161,6 +169,25 @@ export default function RegionSpin() {
 									<p>Store: {winner.region}</p>
 								)}
 								<p>Phone: {winner.phone}</p>
+							</div> */}
+
+							{/* new format matching raw data structure */}
+							<div className='text-center flex flex-col gap-6 text-2xl'>
+								<p className='uppercase text-center font-bold'>Winner</p>
+
+								{winner.customer && winner.customer.length > 4 && (
+									<p>Name: {winner.customer}</p>
+								)}
+
+								{winner.city && <p>Address: {winner.city}</p>}
+
+								{winner.region && <p>Sales Region: {winner.region}</p>}
+
+								{winner.phone && <p>Phone: {winner.phone}</p>}
+
+								{winner.deviceBought && <p>Prize: {winner.deviceBought}</p>}
+
+								{winner.ticketNo && <p>IMEI: {winner.ticketNo}</p>}
 							</div>
 						</div>
 					</Modal.Body>
