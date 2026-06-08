@@ -3,38 +3,38 @@ import { useRouter } from 'next/router';
 import { regions } from '../../data/regions';
 import { addTicket } from './api/services';
 
-import { sallah } from '../../data/data';
+// import { sallah } from '../../data/data';
 
 // the sheet prefixes regions with a letter for sorting (e.g. "A.Abuja"), so strip
 // that off and map the cleaned name to the region names used across the app
-const regionNames = {
-  abuja: 'Abuja',
-  ibadan: 'Ibadan',
-  kano: 'Kano',
-  kaduna: 'Kaduna',
-  lagos: 'Lagos',
-  onitsha: 'Onitsha',
-  phc: 'Port Harcourt',
-};
+// const regionNames = {
+//   abuja: 'Abuja',
+//   ibadan: 'Ibadan',
+//   kano: 'Kano',
+//   kaduna: 'Kaduna',
+//   lagos: 'Lagos',
+//   onitsha: 'Onitsha',
+//   phc: 'Port Harcourt',
+// };
 
 const Home = () => {
   const router = useRouter();
 
-  const formattedData = sallah.map((reg) => {
-    const cleanedRegion = reg['Your Region']
-      .replace(/^[A-Z]\.\s*/, '')
-      .trim()
-      .toLowerCase();
+  // const formattedData = sallah.map((reg) => {
+  //   const cleanedRegion = reg['Your Region']
+  //     .replace(/^[A-Z]\.\s*/, '')
+  //     .trim()
+  //     .toLowerCase();
 
-    return {
-      region: regionNames[cleanedRegion] || reg['Your Region'],
-      city: reg['Your Address'],
-      customer: reg['Your Name'],
-      phone: reg['Your mobile number'],
-      deviceBought: reg['Name of Device Purchased'],
-      ticketNo: reg['Your Phone IMEI'],
-    };
-  });
+  //   return {
+  //     region: regionNames[cleanedRegion] || reg['Your Region'],
+  //     city: reg['Your Address'],
+  //     customer: reg['Your Name'],
+  //     phone: reg['Your mobile number'],
+  //     deviceBought: reg['Name of Device Purchased'],
+  //     ticketNo: reg['Your Phone IMEI'],
+  //   };
+  // });
 
   const runAdd = () => {
     console.log(formattedData.length);
