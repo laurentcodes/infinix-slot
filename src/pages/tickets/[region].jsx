@@ -32,13 +32,27 @@ export default function RegionSpin() {
 	const [isExploding, setIsExploding] = useState(false);
 	const [openModal, setOpenModal] = useState(false);
 
+	// ordered list of unique regions in the pool and the cursor used to
+	// rotate through them when drawing from all regions
+	const regionOrderRef = useRef([]);
+	const regionCursorRef = useRef(0);
+
 	useEffect(() => {
 		setLoading(true);
+
+		regionOrderRef.current = [];
+		regionCursorRef.current = 0;
 
 		// if region is 'all', get all tickets without filtering
 		if (region === 'all') {
 			getTickets().then((res) => {
 				setTickets(res.data);
+
+				// capture the order of unique regions for round-robin drawing
+				regionOrderRef.current = [
+					...new Set(res.data.map((ticket) => ticket.region)),
+				];
+
 				setLoading(false);
 			});
 		} else {
@@ -56,14 +70,47 @@ export default function RegionSpin() {
 	const ref = useRef(null);
 
 	const handleSpin = () => {
+		if (tickets.length === 0) return;
+
 		ref.current?.startAnimation();
 
-		// Generate a random index
-		const randomIndex = Math.floor(Math.random() * tickets.length);
+		// default pool is the full ticket list
+		let pickPool = tickets;
+		let nextCursor = regionCursorRef.current;
 
-		// Access the randomly selected value
-		const randomWinner = tickets[randomIndex];
+		// when drawing from all regions, rotate through regions so we dont
+		// pick multiple winners from the same region back to back
+		if (region === 'all' && regionOrderRef.current.length > 0) {
+			const order = regionOrderRef.current;
+
+			// starting at the cursor, find the next region that still has tickets
+			for (let i = 0; i < order.length; i++) {
+				const index = (regionCursorRef.current + i) % order.length;
+				const regionTickets = tickets.filter(
+					(ticket) => ticket.region === order[index]
+				);
+
+				if (regionTickets.length > 0) {
+					pickPool = regionTickets;
+					nextCursor = (index + 1) % order.length;
+					break;
+				}
+			}
+		}
+
+		// generate a random index within the selected pool
+		const randomIndex = Math.floor(Math.random() * pickPool.length);
+
+		// access the randomly selected value
+		const randomWinner = pickPool[randomIndex];
 		const randomValue = randomWinner.ticketNo;
+
+		// advance the cursor so the next spin moves to the following region
+		regionCursorRef.current = nextCursor;
+
+		// remove the winner from the pool so they cant be drawn again and so
+		// exhausted regions are skipped in the rotation
+		setTickets((prev) => prev.filter((ticket) => ticket !== randomWinner));
 
 		setWinner(randomWinner);
 		setValue(randomValue);
