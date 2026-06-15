@@ -3,7 +3,7 @@ import { useRouter } from 'next/router';
 import { regions } from '../../data/regions';
 import { addTicket } from './api/services';
 
-// import { sallah } from '../../data/data';
+// import { sallahConsolation } from '../../data/data';
 
 // the sheet prefixes regions with a letter for sorting (e.g. "A.Abuja"), so strip
 // that off and map the cleaned name to the region names used across the app
@@ -20,7 +20,7 @@ import { addTicket } from './api/services';
 const Home = () => {
   const router = useRouter();
 
-  // const formattedData = sallah.map((reg) => {
+  // const formattedData = sallahConsolation.map((reg) => {
   //   const cleanedRegion = reg['Your Region']
   //     .replace(/^[A-Z]\.\s*/, '')
   //     .trim()
@@ -59,7 +59,7 @@ const Home = () => {
     <div className='h-screen w-screen bg-green-700 p-6'>
       <div>
         <h3 className='text-3xl uppercase text-white mb-6'>
-          Grand Prize Selection
+          All Regions
         </h3>
 
         {/* <button className='p-3 bg-white my-3 rounded-md' onClick={runAdd}>

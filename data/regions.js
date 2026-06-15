@@ -1,39 +1,35 @@
 export const regions = [
   {
-    name: 'All Regions',
-    initial: 'All',
+    name: 'Abuja',
+    initial: 'Ab',
+  },
+  {
+    name: 'Ibadan',
+    initial: 'Ib',
+  },
+  {
+    name: 'Kano',
+    initial: 'Kn',
+  },
+  {
+    name: 'Kaduna',
+    initial: 'Kd',
+  },
+  {
+    name: 'Lagos',
+    initial: 'La',
+  },
+  {
+    name: 'Onitsha',
+    initial: 'On',
+  },
+  {
+    name: 'Port Harcourt',
+    initial: 'Ph',
   },
   // {
-  //   name: 'Lagos',
-  //   initial: 'La',
-  // },
-  // {
-  //   name: 'Port Harcourt',
-  //   initial: 'Ph',
-  // },
-  // {
-  //   name: 'Ibadan',
-  //   initial: 'Ib',
-  // },
-  // {
-  //   name: 'Kaduna',
-  //   initial: 'Kd',
-  // },
-  // {
-  //   name: 'Kano',
-  //   initial: 'Kn',
-  // },
-  // {
-  // 	name: 'Kaduna & Kano',
-  // 	initial: 'Kd & Kn',
-  // },
-  // {
-  //   name: 'Onitsha',
-  //   initial: 'On',
-  // },
-  // {
-  //   name: 'Abuja',
-  //   initial: 'Ab',
+  //   name: 'All Regions',
+  //   initial: 'All',
   // },
 ];
 
