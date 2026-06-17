@@ -81,7 +81,7 @@ const Home = () => {
                         region:
                           region.name === 'All Regions'
                             ? 'all'
-                            : region.name.toLowerCase(),
+                            : (region.slug ?? region.name.toLowerCase()),
                         type: 'norm',
                       },
                     })

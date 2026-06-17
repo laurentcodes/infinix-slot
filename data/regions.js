@@ -8,12 +8,9 @@ export const regions = [
     initial: 'Ib',
   },
   {
-    name: 'Kano',
-    initial: 'Kn',
-  },
-  {
-    name: 'Kaduna',
-    initial: 'Kd',
+    name: 'Kano / Kaduna',
+    initial: 'Kn/Kd',
+    slug: 'kano|kaduna',
   },
   {
     name: 'Lagos',
